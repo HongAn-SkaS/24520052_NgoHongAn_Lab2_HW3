@@ -1,0 +1,142 @@
+
+/* 1. Reset and design tokens */
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #202124;
+  background: #f5f6f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+
+  --color-primary: #d92736;
+  --color-primary-hover: #b91f2c;
+  --color-surface: #ffffff;
+  --color-border: #d9dde3;
+  --spacing: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid #175cd3;
+  outline-offset: 3px;
+}
+
+/* 2. Page layout */
+header,
+main,
+footer {
+  width: min(100% - 2rem, 960px);
+  margin-inline: auto;
+}
+
+header {
+  padding-block: 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+}
+
+header p {
+  margin-block: 0.5rem;
+}
+
+main {
+  display: grid;
+  gap: var(--spacing);
+}
+
+section {
+  min-width: 0;
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+section h2 {
+  margin-top: 0;
+}
+
+article {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+article h3 {
+  margin-top: 0;
+}
+
+data,
+output {
+  font-weight: 700;
+}
+
+#countdown-display {
+  display: inline-block;
+  color: var(--color-primary);
+  font-size: clamp(1.8rem, 8vw, 2.5rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+/* 3. Buttons */
+button {
+  min-height: 44px;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  background: var(--color-primary);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+button:disabled {
+  color: #555555;
+  background: #e2e4e8;
+  cursor: not-allowed;
+}
+
+/* 4. Footer */
+footer {
+  padding-block: 1rem;
+  color: #555555;
+  text-align: center;
+}
+
+/* 5. Larger screens */
+@media (min-width: 700px) {
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  main > section:first-child {
+    grid-column: 1 / -1;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+}
